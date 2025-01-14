@@ -55,7 +55,7 @@
             overflow: hidden;
             border-right: 2px solid rgba(255,255,255,0.75);
             width: 0;
-            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+            animation: typing 4s steps(40, end) infinite, blink 0.75s step-end infinite;
         }
 
         @keyframes glow {
@@ -68,10 +68,10 @@
         }
 
         @keyframes typing {
-            from {
+            0%, 100% {
                 width: 0;
             }
-            to {
+            50% {
                 width: 100%;
             }
         }
