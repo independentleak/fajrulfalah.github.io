@@ -31,6 +31,7 @@
             background: linear-gradient(90deg, rgba(255,0,0,0.6), rgba(0,255,0,0.6), rgba(0,0,255,0.6));
             box-shadow: 0 0 20px rgba(255,255,255,0.5);
             color: white;
+            animation: glow 1.5s infinite alternate;
         }
 
         .timer::after {
@@ -50,6 +51,25 @@
         .question {
             margin-top: 20px;
             font-size: 1.2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(255,255,255,0.3);
+            }
+            to {
+                box-shadow: 0 0 30px rgba(255,255,255,0.8);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
