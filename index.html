@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Display</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .timer-container {
+            position: relative;
+            text-align: center;
+        }
+
+        .timer {
+            font-size: 3rem;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(255,0,0,0.6), rgba(0,255,0,0.6), rgba(0,0,255,0.6));
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            color: white;
+        }
+
+        .timer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+            padding: 4px;
+            background: linear-gradient(90deg, rgba(255,0,0,0.6), rgba(0,255,0,0.6), rgba(0,0,255,0.6));
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .question {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+        <div class="timer" id="timer">00:00:00</div>
+        <div class="question">Waktumu Engkau Habiskan Untuk Apa?</div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call to set the time immediately
+    </script>
+</body>
+</html>
