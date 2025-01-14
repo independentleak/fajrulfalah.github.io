@@ -31,7 +31,7 @@
             background: linear-gradient(90deg, rgba(255,0,0,0.6), rgba(0,255,0,0.6), rgba(0,0,255,0.6));
             box-shadow: 0 0 20px rgba(255,255,255,0.5);
             color: white;
-            animation: glow 1.5s infinite alternate, fadeInOut 3s infinite;
+            animation: glow 1.5s infinite alternate;
         }
 
         .timer::after {
@@ -51,7 +51,11 @@
         .question {
             margin-top: 20px;
             font-size: 1.2rem;
-            animation: fadeInOut 3s infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid rgba(255,255,255,0.75);
+            width: 0;
+            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
         }
 
         @keyframes glow {
@@ -63,12 +67,21 @@
             }
         }
 
-        @keyframes fadeInOut {
-            0%, 100% {
-                opacity: 0;
+        @keyframes typing {
+            from {
+                width: 0;
             }
-            50% {
-                opacity: 1;
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            from {
+                border-color: rgba(255,255,255,0.75);
+            }
+            to {
+                border-color: transparent;
             }
         }
     </style>
